@@ -11,6 +11,14 @@
 	   <put-attribute name="main" value="" />
 	   <put-attribute name="footer" value="/tiles/default/footer.jsp" />
 	</definition>
+
+	<definition name="/forum.theme.welcome.tiles" extends="base.definition" >
+	        <put-attribute name="main" value="/pages/forum/welcome.jsp" />
+	</definition>
+
+	<definition name="/forum.theme.success.tiles" extends="base.definition" >
+	        <put-attribute name="main" value="/pages/forum/success.jsp" />
+	</definition>
 	
 	<definition name="/login.tiles" extends="base.definition" >
 	        <put-attribute name="main" value="/pages/user/login.jsp" />

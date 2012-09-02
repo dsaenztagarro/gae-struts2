@@ -2,6 +2,10 @@ package com.davlanca.pathfinder.model;
 
 import java.io.Serializable;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 @SuppressWarnings("serial")
 public class User implements Serializable {
 	
@@ -9,8 +13,10 @@ public class User implements Serializable {
 	private String firstName;
 	private String lastName;
 	private String password;
+	@Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long userId;	
 	private String userName;
-	
 	/**
 	 * @return the emailAddress
 	 */
@@ -34,6 +40,12 @@ public class User implements Serializable {
 	 */
 	public String getPassword() {
 		return password;
+	}
+	/**
+	 * @return the userId
+	 */
+	public Long getUserId() {
+		return userId;
 	}
 	/**
 	 * @return the userName
@@ -66,10 +78,16 @@ public class User implements Serializable {
 		this.password = password;
 	}
 	/**
+	 * @param userId the userId to set
+	 */
+	public void setUserId(Long userId) {
+		this.userId = userId;
+	}
+	/**
 	 * @param userName the userName to set
 	 */
 	public void setUserName(String userName) {
 		this.userName = userName;
-	}	
-		
+	}
+			
 }

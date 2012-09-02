@@ -6,7 +6,7 @@ import com.opensymphony.xwork2.ActionInvocation;
 import com.opensymphony.xwork2.interceptor.Interceptor;
 
 @SuppressWarnings("serial")
-public class UserNameValidatorInterceptor implements Interceptor {
+public class UserNameInterceptor implements Interceptor {
 
 	@Override
 	public void destroy() {

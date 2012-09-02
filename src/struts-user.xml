@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<package name="user" namespace="/user" extends="custom-default">
+		<result-types>
+			<result-type name="tiles" class="org.apache.struts2.views.tiles.TilesResult" default="true" />
+		</result-types>
+	
+		<interceptors>
+			<interceptor name="logger" class="com.davlanca.pathfinder.interceptor.LoggingInterceptor"/>
+			<interceptor name="username-validator" class="com.davlanca.pathfinder.interceptor.UserNameInterceptor"/>
+			<interceptor-stack name="custom-default-stack">
+				<interceptor-ref name="logger" />
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+		</interceptors>
+		
+		<default-interceptor-ref name="custom-default-stack"/>
+			
+		<!-- Actions -->
+		<action name="login">
+			<result>/login.tiles</result>
+		</action>
+		<action name="welcome" class="com.davlanca.pathfinder.action.WelcomeUserAction">
+			<result name="success">/welcome_user.tiles</result>
+			<result name="input">/login.tiles</result>
+		</action>
+		<action name="addUser" method="add" class="com.davlanca.pathfinder.action.WelcomeUserAction">
+			<interceptor-ref name="username-validator" />
+			<interceptor-ref name="custom-default-stack" />
+			<result name="success">/welcome_user.tiles</result>
+			<result name="input">/login.tiles</result>
+		</action>
+		<action name="updateUser" method="update" class="com.davlanca.pathfinder.action.WelcomeUserAction">
+			<result name="success">/welcome_user.tiles</result>
+			<result name="input">/login.tiles</result>
+		</action>
+		<action name="deleteUser" method="delete" class="com.davlanca.pathfinder.action.WelcomeUserAction">
+			<result name="success">/welcome_user.tiles</result>
+			<result name="input">/login.tiles</result>
+		</action>	
+	</package>
+</struts>

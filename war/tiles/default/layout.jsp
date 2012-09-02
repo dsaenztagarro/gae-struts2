@@ -5,20 +5,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title><tiles:insertAttribute name="title" ignore="true" /></title>
+<!--5grid--><script src="/css/5grid/viewport.js"></script><!--[if lt IE 9]><script src="/css/5grid/ie.js"></script><![endif]--><link rel="stylesheet" href="/css/5grid/responsive.css" /><!--/5grid-->
+<link rel="stylesheet" href="/css/style.css" />
+<!--[if lte IE 9]><link rel="stylesheet" href="/css/style-ie9.css" /><![endif]-->
 </head>
 <body>
-	<table border="1" cellpadding="2" cellspacing="2" align="center">
-		<tr>
-			<td height="30"><tiles:insertAttribute name="header" />
-			</td>
-		</tr>
-		<tr>
-			<td><tiles:insertAttribute name="main" /></td>
-		</tr>
-		<tr>
-			<td height="30"><tiles:insertAttribute name="footer" />
-			</td>
-		</tr>
-	</table>
+	<tiles:insertAttribute name="header" />
+	<tiles:insertAttribute name="main" />
+	<tiles:insertAttribute name="footer" />
 </body>
 </html>

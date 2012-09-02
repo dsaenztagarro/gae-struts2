@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+	<package name="forum" namespace="/forum" extends="custom-default">
+		<result-types>
+			<result-type name="tiles" class="org.apache.struts2.views.tiles.TilesResult" default="true"/>
+		</result-types>
+	
+		<interceptors>
+			<interceptor name="logger" class="com.davlanca.pathfinder.interceptor.LoggingInterceptor" />
+			<interceptor name="forum-theme-interceptor" class="com.davlanca.pathfinder.interceptor.ForumThemeInterceptor" />
+			<interceptor-stack name="custom-default-stack">
+				<interceptor-ref name="logger" />
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+		</interceptors>
+		
+		<default-interceptor-ref name="custom-default-stack"/>
+			
+		<!-- Actions -->
+		<action name="welcome">
+			<result>/forum.theme.welcome.tiles</result>
+		</action>			
+		<action name="addForumTheme" method="add" class="com.davlanca.pathfinder.action.ForumThemeAction">
+			<interceptor-ref name="forum-theme-interceptor" />
+			<interceptor-ref name="custom-default-stack" />
+			<result name="success">/forum.theme.success.tiles</result>
+			<result name="input">/forum.theme.welcome.tiles</result>
+		</action>
+		<action name="updateForumTheme" method="update" class="com.davlanca.pathfinder.action.ForumThemeAction">
+			<result name="success">/forum.theme.success.tiles</result>
+			<result name="input">/forum.theme.update.tiles</result>
+		</action>
+		<action name="deleteForumTheme" method="delete" class="com.davlanca.pathfinder.action.ForumThemeAction">
+			<result name="success">/forum.welcome.tiles</result>
+			<result name="input">/forum.theme.delete.tiles</result>
+		</action>	
+	</package>
+</struts>
