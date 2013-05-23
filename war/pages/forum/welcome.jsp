@@ -11,8 +11,8 @@
 			<h1>Foro</h1>
 			
 			<s:form action="welcome">
-				<s:textfield name="name" label="Name"/>
-				<s:textfield name="description" label="Description"/>
+				<s:textfield name="name" key="name"/>
+				<s:textfield name="description" key="description"/>
 				<s:submit />
 				<s:submit action="addForumTheme" value="Add" />
 				<s:submit action="updateForumTheme" value="Update" />
